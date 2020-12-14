@@ -4,7 +4,6 @@ import { useStaticQuery, graphql } from "gatsby"
 import Layout from "../components/Layout"
 import SEO from "../components/seo"
 import PostItem from "../components/PostItem"
-import { Database } from "styled-icons/entypo"
 
 const IndexPage = () => {
   const { allMarkdownRemark } = useStaticQuery(
