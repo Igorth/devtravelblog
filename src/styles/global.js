@@ -75,7 +75,7 @@ body.dark {
 	--black: #222;
 }
 
-body {
+body.light {
 	--borders: #dedede;
 	--texts: #111;
 	--postColor: #555555;
