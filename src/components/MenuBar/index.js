@@ -4,18 +4,24 @@ import { Home } from '@styled-icons/feather/Home'
 import { Search } from '@styled-icons/feather/Search'
 import { Moon } from '@styled-icons/feather/Moon'
 import { Grid } from '@styled-icons/feather/Grid'
+import { List } from '@styled-icons/feather/List'
 import { ArrowUp as Arrow } from '@styled-icons/feather/ArrowUp'
 
 import * as S from './styled'
 
 const MenuBar = () => {
   const [theme, setTheme] = useState(null)
+  const [display, setDisplay] = useState(null)
 
   const isDarkMode = theme === 'dark'
+  const isListMode = display === 'list'
 
   useEffect(() => {
     setTheme(window.__theme)
+    setDisplay(window.__display)
+
     window.__onThemeChange = () => setTheme(window.__theme)
+    window.__onDisplayChange = () => setDisplay(window.__display)
   }, [])
 
   return(
@@ -39,8 +45,11 @@ const MenuBar = () => {
       >
         <Moon />
       </S.MenuBarItem>
-      <S.MenuBarItem title="Visualization">
-        <Grid />
+      <S.MenuBarItem 
+        title="Mudar visualização" onClick={() => {
+          window.__setPreferredDisplay(isListMode ? 'grid' : 'list')
+        }}>
+          {isListMode ? <Grid /> : <List /> }
       </S.MenuBarItem>
       <S.MenuBarItem title="Go to the top">
         <Arrow />
