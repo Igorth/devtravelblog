@@ -7,6 +7,8 @@ import { Grid } from '@styled-icons/feather/Grid'
 import { List } from '@styled-icons/feather/List'
 import { ArrowUp as Arrow } from '@styled-icons/feather/ArrowUp'
 
+import getThemeColor from '../../utils/getThemeColor'
+
 import * as S from './styled'
 
 const MenuBar = () => {
@@ -27,10 +29,10 @@ const MenuBar = () => {
   return(
     <S.MenuBarWrapper>
     <S.MenuBarGroup>
-      <S.MenuBarLink to="/" cover direction="right" bg="#16202c" duration={0.6} title="Back to Home">
+      <S.MenuBarLink to="/" cover direction="right" bg={getThemeColor()} duration={0.6} title="Back to Home">
         <S.MenuBarItem><Home /></S.MenuBarItem>
       </S.MenuBarLink>
-    <S.MenuBarLink to="/search/" cover direction="right" bg="#16202c" duration={0.6} title="Search">
+    <S.MenuBarLink to="/search/" cover direction="right" bg={getThemeColor()} duration={0.6} title="Search">
         <S.MenuBarItem><Search /></S.MenuBarItem>
       </S.MenuBarLink>
     </S.MenuBarGroup>
