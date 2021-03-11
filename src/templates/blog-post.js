@@ -2,7 +2,7 @@ import React from 'react'
 import { graphql } from 'gatsby'
 
 import Layout from "../components/Layout"
-import SEO from "../components/seo"
+import SEO from "../components/Seo"
 import RecommendedPosts from "../components/RecommendedPosts"
 import Comments from "../components/Comments"
 
@@ -15,7 +15,11 @@ const BlogPost = ({ data, pageContext }) => {
 
   return (
     <Layout>
-      <SEO title={post.frontmatter.title}/>      
+      <SEO 
+        title={post.frontmatter.title}
+        description={post.frontmatter.description}
+        image={post.frontmatter.image}
+      />      
       <S.PostHeader>
       <S.PostDate>{post.frontmatter.date} - {post.timeToRead} min de leitura</S.PostDate>
       <S.PostTitle>{post.frontmatter.title}</S.PostTitle>
@@ -40,6 +44,7 @@ export const query = graphql`
       title
       description
       date(locale: "pt-br", formatString: "DD [de] MMMM [de] YYYY")
+      
     }
     html
     timeToRead
